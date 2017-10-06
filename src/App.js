@@ -16,7 +16,7 @@ class App extends Component {
   componentDidMount() {
     fetch(`${API_URL}/recipes`)
       .then(res => res.json())
-      .then(res => this.setState {recipes}))
+      .then(recipes => this.setState({ recipes }))
   }
 
 
