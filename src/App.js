@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Recipes from './Recipes';
+import Recipes from './containers/Recipes';
 import './App.css';
 
 const recipes = []
@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        // <Recipes recipes={recipes} />
+        <Recipes recipes={recipes} />
       </div>
     );
   }
