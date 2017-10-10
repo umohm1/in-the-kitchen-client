@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Recipes = (props) => (
-  <div className="RecipesContainer">
-    <h1>Recipes</h1>
+  <div>
+  <h1>Recipes</h1>
     {props.recipes.map(recipe =>
-      <div className="RecipeCard">
+      <div key={recipe.id} className="RecipeCard">
       <h2>{recipe.title}</h2>
       <p>Ingredients: {recipe.ingredients}</p>
       <p>Directions: {recipe.directions}</p>
