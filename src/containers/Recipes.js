@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Recipes.css'
+import RecipeCard from '../components/RecipeCard';
+import RecipeForm from './RecipeForm';
 
-const Recipes = (props) => (
-  <div>
-  <h1>Recipes</h1>
-    {props.recipes.map(recipe =>
-      <div key={recipe.id} className="RecipeCard">
-      <p>Name: {recipe.name}</p>
-      <p>Ingredients: {recipe.ingredients}</p>
-      <p>Directions: {recipe.directions}</p>
-      <p>Cook Time: {recipe.cook_time}</p>
+class Recipes extends Component {
+  render() {
+    return(
+      <div className="RecipesContainer">
+      <h1>Recipes</h1>
+        {this.props.recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} /> )}
+        <RecipeForm />
       </div>
-    )}
-  </div>
-);
+    );
+  }
+}
 
 export default Recipes;
