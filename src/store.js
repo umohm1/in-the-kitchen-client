@@ -4,19 +4,11 @@ import {
   combineReducers
 } from 'redux';
 import thunk from 'redux-thunk';
+import recipes from './reducers/recipes_reducer';
 
-const recipesReducer = (state = [], action) => {
-  switch(action.type) {
-    case 'GET_RECIPES':
-    return action.recipes;
-
-    default:
-    reutrn state;
-  }
-}
 
 const reducers = combineReducers({
-  recipes: recipesReducer
+  recipes
 });
 
 const middleware = [thunk];
