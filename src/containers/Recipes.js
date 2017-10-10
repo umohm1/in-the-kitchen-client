@@ -6,9 +6,9 @@ const Recipes = (props) => (
     {props.recipes.map(recipe =>
       <div className="RecipeCard">
       <h2>{recipe.title}</h2>
-      <p>{recipe.ingredients}</p>
-      <p>{recipe.directions}</p>
-      <p>{recipe.cook_time}</p>
+      <p>Ingredients: {recipe.ingredients}</p>
+      <p>Directions: {recipe.directions}</p>
+      <p>Cook Time: {recipe.cook_time}</p>
       </div>
     )}
   </div>
