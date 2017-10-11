@@ -3,10 +3,10 @@ export default (state = {
   ingredients: '',
   directions: '',
   cook_time: 0
-}, action) =>
+}, action) => {
 
   switch(action.type) {
-    case 'UPDATED_DATA':
+    case 'UPDATED_RECIPE':
       return action.recipeFormData
 
       default:
