@@ -5,10 +5,12 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import recipes from './reducers/recipes_reducer';
+import recipeFormData from './reducers/recipeFormData';
 
 
 const reducers = combineReducers({
-  recipes
+  recipes,
+  recipeFormData
 });
 
 const middleware = [thunk];

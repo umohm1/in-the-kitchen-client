@@ -13,7 +13,7 @@ export const getRecipes= () => {
   return dispatch => {
     return fetch(`${API_URL}/posts`)
     .then(res => res.json())
-    .then(recipes => dispatch(setRecipes(posts)))
+    .then(recipes => dispatch(setRecipes(recipes)))
     .catch(error => console.log(error));
   }
 }
