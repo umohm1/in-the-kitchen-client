@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateRecipeFormData } from '../actions/recipeForm';
-import { createRecipe } from '../actions/recipes';
+import { createRecipe } from '../actions/recipeActions';
 
 class RecipeForm extends Component {
 

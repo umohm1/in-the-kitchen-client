@@ -8,6 +8,13 @@ const setRecipes = recipes => {
   }
 }
 
+const addRecipe = recipe => {
+  return {
+    type:'CREATE_RECIPE_SUCCESS',
+    recipe
+  }
+}
+
 // Async actions
 export const getRecipes= () => {
   return dispatch => {
@@ -25,12 +32,10 @@ export const createRecipe = recipe => {
       headers: {
         'Content-Type': 'application/json'
       },
-      data: JSON.stringify({recipe: recipe})
+      body: JSON.stringify({recipe: recipe})
     })
     .then(response => response.json())
-    .then(dog => {
-      debugger
-    })
+    .then(recipe => dispatch(addRecipe(recipe)))
     .catch(error => console.log(error))
   }
 }
