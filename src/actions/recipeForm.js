@@ -4,3 +4,8 @@ export const updateRecipeFormData = recipeFormData => {
     recipeFormData
   }
 }
+export const resetRecipeForm = () => {
+  return {
+    type: 'RESET_RECIPE_FORM'
+  }
+}

@@ -1,3 +1,5 @@
+import { resetRecipeForm } from './recipeForm';
+
 const API_URL = process.env.REACT_APP_API_URL;
 
 // Action Creators
@@ -35,7 +37,10 @@ export const createRecipe = recipe => {
       body: JSON.stringify({recipe: recipe})
     })
     .then(response => response.json())
-    .then(recipe => dispatch(addRecipe(recipe)))
+    .then(recipe => {
+      dispatch(addRecipe(recipe))
+      dispatch(resetRecipeForm())
+    })
     .catch(error => console.log(error))
   }
 }
