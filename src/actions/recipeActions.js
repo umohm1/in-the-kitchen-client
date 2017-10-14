@@ -11,7 +11,7 @@ const setRecipes = recipes => {
 // Async actions
 export const getRecipes= () => {
   return dispatch => {
-    return fetch(`${API_URL}/posts`)
+    return fetch(`${API_URL}/recipes`)
     .then(res => res.json())
     .then(recipes => dispatch(setRecipes(recipes)))
     .catch(error => console.log(error));
