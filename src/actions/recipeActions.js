@@ -17,3 +17,20 @@ export const getRecipes= () => {
     .catch(error => console.log(error));
   }
 }
+
+export const createRecipe = recipe => {
+  return dispatch => {
+    return fetch(`${API_URL}/recipes`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: JSON.stringify({recipe: recipe})
+    })
+    .then(response => response.json())
+    .then(dog => {
+      debugger
+    })
+    .catch(error => console.log(error))
+  }
+}

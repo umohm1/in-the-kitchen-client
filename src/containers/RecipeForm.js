@@ -75,4 +75,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { updateRecipeFormData})(RecipeForm);
+export default connect(mapStateToProps, {
+  updateRecipeFormData,
+  createRecipe
+})(RecipeForm);
