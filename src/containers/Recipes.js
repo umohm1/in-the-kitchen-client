@@ -18,7 +18,6 @@ class Recipes extends Component {
       <div className="RecipesContainer">
       <h1>Recipes</h1>
         {this.props.recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} /> )}
-        <RecipeForm />
       </div>
     );
   }
