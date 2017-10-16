@@ -6,18 +6,20 @@ import { Navlink, Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <div>
-    <Menu inverted>
+    <Menu>
     <Menu.Item header>In The Kitchen</Menu.Item>
     <Menu.Item as={Link} to='/'>
       <Icon name="home"/>
     </Menu.Item>
-    <Menu.Item as={Link} to='/recipes' name="Recipes"/>
-        <Menu.Item as={Link} to='/recipes/new' name="Create New Recipe"/>
-        <Menu.Item as={Link} to='/about' name="About"/>
-        <Menu.Item position="right">
-        </Menu.Item>
-      </Menu>
-      <br/>
+    <Menu.Item as={Link} to='/recipes' name='Recipes'>
+    </Menu.Item>
+    <Menu.Item as={Link} to='/recipes/new' name='Create A Recipe'>
+    </Menu.Item>
+    <Menu.Item as={Link} to='/about' name='About'>
+    </Menu.Item>
+    <Menu.Item as={Link} to='/contact' name='Contact Us'>
+    </Menu.Item>
+    </Menu>
     </div>
   );
 }
