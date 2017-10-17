@@ -46,7 +46,7 @@ class RecipeForm extends Component {
         <div>
           <label htmlFor="directions">Directions:</label>
           <input
-            type="text"
+            type="textbox"
             onChange={this.handleOnChange}
             name="directions"
             value={directions}
