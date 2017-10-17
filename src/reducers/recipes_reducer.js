@@ -6,6 +6,9 @@ export default (state = [], action) => {
     case 'CREATE_RECIPE_SUCCESS':
       return state.concat(action.recipe);
 
+    case 'REMOVE_RECIPE':
+      return state.filter(recipe => recipe.id !== action.recipe.id);
+
 
     default:
     return state;

@@ -30,8 +30,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ getRecipes: getRecipes}, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Recipes);
+export default connect(mapStateToProps, {deleteRecipe})(Recipes);
