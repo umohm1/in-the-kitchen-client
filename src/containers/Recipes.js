@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './Recipes.css'
 import RecipeCard from '../components/RecipeCard';
-// import RecipeForm from './RecipeForm';
+import RecipeForm from './RecipeForm';
 import { getRecipes } from '../actions/recipeActions';
 
 
@@ -30,4 +30,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, {deleteRecipe})(Recipes);
+export default connect(mapStateToProps, {getRecipes})(Recipes);

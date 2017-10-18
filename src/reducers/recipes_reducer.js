@@ -3,7 +3,7 @@ export default (state = [], action) => {
     case 'GET_RECIPES':
       return action.recipes;
 
-    case 'CREATE_RECIPE_SUCCESS':
+    case 'CREATE_RECIPE':
       return state.concat(action.recipe);
 
     case 'REMOVE_RECIPE':
