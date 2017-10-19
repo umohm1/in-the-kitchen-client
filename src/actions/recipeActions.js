@@ -12,15 +12,15 @@ export const setRecipes = recipes => {
 
 export const addRecipe = recipe => {
   return {
-    type:'CREATE_RECIPE_SUCCESS',
+    type:'CREATE_RECIPE',
     recipe
   }
 }
 
 export const removeRecipe = recipe => {
   return {
-    type: 'REMOVE_RECIPE_SUCCESS',
-    recipe
+    type: 'REMOVE_RECIPE',
+    recipeId
   }
 }
 
@@ -34,7 +34,18 @@ export const getRecipes= () => {
   }
 }
 
-export const createRecipe = recipe => {
+export const fetchRecipe = (recipeId) => {
+	return dispatch => {
+		return fetch (`${API_URL}/recipes/${recipeId}`)
+			.then(response => response.json())
+			.then(recipe => {
+				dispatch(setRecipes((recipe)));
+			})
+			.catch(error => console.log(error));
+	}
+}
+
+export const createRecipe = (recipe, routerHistory) => {
   return dispatch => {
     return fetch(`${API_URL}/recipes`, {
       method: "POST",
@@ -47,18 +58,19 @@ export const createRecipe = recipe => {
     .then(recipe => {
       dispatch(addRecipe(recipe))
       dispatch(resetRecipeForm())
+      routerHistory.replace(`/recipes/${recipe.id}`)
     })
     .catch(error => console.log(error))
   }
 }
 
-export const deleteRecipe = (recipe, routerHistory) => {
+export const deleteRecipe = (recipeId, routerHistory) => {
   return dispatch => {
-    return fetch(`${API_URL}/recipes`, {
+    return fetch(`${API_URL}/recipes/${recipeId}`, {
       method: "DELETE"
     })
     .then(response => {
-      dispatch(removeRecipe(recipe));
+      dispatch(removeRecipe(recipeId));
       routerHistory.replace('/recipes');
     })
     .catch(error => console.log(error))

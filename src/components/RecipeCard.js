@@ -7,7 +7,7 @@ class RecipeCard extends Component {
     const recipe = this.props.recipe
 
     return (
-      <div className="RecipeCard">
+      <div key={recipe.id} className="RecipeCard">
       <p>{recipe.name}</p>
       <p>Ingredients: {recipe.ingredients}</p>
       <p>Directions: {recipe.directions}</p>
