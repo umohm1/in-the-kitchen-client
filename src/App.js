@@ -21,7 +21,7 @@ class App extends Component {
               <Container>
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/recipes' component={Recipes}/>
-                <Route exact path='/recipes/:recipesId' component={Recipe}/>
+                <Route exact path='/recipes/:recipeId' component={Recipe}/>
                 <Route exact path='/recipes/new' component={RecipeForm}/>
                 <Route exact path='/about' component={About}/>
                 <Route exact path='/contact' component={Contact}/>

@@ -20,7 +20,7 @@ export const addRecipe = recipe => {
 export const removeRecipe = recipe => {
   return {
     type: 'REMOVE_RECIPE',
-    recipeId
+    recipe
   }
 }
 
