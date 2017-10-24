@@ -36,10 +36,10 @@ export const getRecipes= () => {
 
 export const fetchRecipe = (recipeId) => {
 	return dispatch => {
-		return fetch (`${API_URL}/recipes/${recipeId}`)
+		return fetch(`${API_URL}/recipes/${recipeId}`)
 			.then(response => response.json())
 			.then(recipe => {
-				dispatch(setRecipes((recipe)));
+				dispatch(setRecipes([recipe]));
 			})
 			.catch(error => console.log(error));
 	}

@@ -12,9 +12,6 @@ class RecipeCard extends Component {
       <p>Ingredients: {recipe.ingredients}</p>
       <p>Directions: {recipe.directions}</p>
       <p>Cook Time: {recipe.cook_time}</p>
-      <button className="edit">Edit</button>
-      <br></br>
-      <button className="delete">Delete</button>
       </div>
     )
   }

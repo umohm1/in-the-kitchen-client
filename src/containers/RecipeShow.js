@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
-// import { fetchRecipe } from '../actions/recipeActions';
-import deleteRecipe from '../actions/recipeActions';
+import { fetchRecipe } from '../actions/recipeActions';
+import { deleteRecipe } from '../actions/recipeActions';
+import RecipeForm from './RecipeForm';
+import RecipeCard from '../components/RecipeCard';
+import Recipes from './Recipes';
 
 
 class RecipeShow extends Component {
+    constructor(props) {
+      super(props);
 
-  findRecipe = recipeId => {
-    return this.props.recipes.find(recipe => {
-      return recipe.id == recipeId
-    })
-  }
+      this.state = {
+        recipe: {name: ''}
+      };
+    }
+
+  componentDidMount() {
+    this.props.fetchRecipe(this.props.match.params.recipeId);
+	}
 
   handleOnChange = (e) => {
     e.preventDefault();
@@ -20,38 +28,28 @@ class RecipeShow extends Component {
   }
 
   render() {
-    const { recipe, match } = this.props;
-
+    const recipe = this.props.recipe[0]
     return (
-      <Route exact path={`${match.url}/:recipeId`} component={Recipe} />
-      render={() =>
-        <div id="recipeShow">
-        )} />
-        </div>
-        const recipe = this.props.recipe
-        // {debugger}
-        return (
-          <div className="RecipeCard">
-          <p>{recipe.name}</p>
-          <p>Ingredients: {recipe.ingredients}</p>
-          <p>Directions: {recipe.directions}</p>
-          <p>Cook Time: {recipe.cook_time}</p>
-          <button className="edit">Edit</button>
-          <br></br>
-          <button onClick={this.handleOnChange} id="deleteButton" type="submit">Delete</button><br/>
-          </div>
+      <div>
+      {recipe.name}
+      <h1>It Works?</h1>
+
+      </div>
     )
   }
 }
+//inheriting match from this.props this is a POJO that contains the current url.
 
 const mapStateToProps = (state, ownProps) => {
+  // console.log(state, 'return state');
 return {
-  recipe: state.recipe,
+  recipe: state.recipes,
   recipeId: ownProps.match.params.recipeId
  }
 }
+// mapStateToProps() function to pulls the recipes property from our store's state and attaches it to the props of this component
 
 //incorporate recipe.js into recipeShow
 // no need to fetch a recipe because I don't have it yet. Call to the API to create the recipeId
 
-export default connect(mapStateToProps, {deleteRecipe})(RecipeShow);
+export default connect(mapStateToProps, {fetchRecipe})(RecipeShow);

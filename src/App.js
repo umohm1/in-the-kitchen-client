@@ -5,8 +5,8 @@ import { Container } from 'semantic-ui-react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Recipes from './containers/Recipes';
-import Recipe from './containers/Recipe';
 import RecipeForm from './containers/RecipeForm';
+import RecipeShow from './containers/RecipeShow';
 import About from './components/About';
 import Contact from './components/Contact';
 
@@ -21,7 +21,7 @@ class App extends Component {
               <Container>
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/recipes' component={Recipes}/>
-                <Route exact path='/recipes/:recipeId' component={Recipe}/>
+                <Route path='/recipes/:recipeId' component={RecipeShow}/>
                 <Route exact path='/recipes/new' component={RecipeForm}/>
                 <Route exact path='/about' component={About}/>
                 <Route exact path='/contact' component={Contact}/>

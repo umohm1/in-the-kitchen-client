@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import './Recipes.css'
 import RecipeCard from '../components/RecipeCard';
 import RecipeForm from './RecipeForm';
+import RecipeShow from './RecipeShow';
 import { getRecipes } from '../actions/recipeActions';
 
 
@@ -11,6 +12,11 @@ class Recipes extends Component {
 
   componentDidMount() {
     this.props.getRecipes()
+  }
+
+  handleOnClick = (e) => {
+    // this.setState
+    // e.target.value
   }
 
 
