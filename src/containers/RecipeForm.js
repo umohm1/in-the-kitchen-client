@@ -23,7 +23,7 @@ class RecipeForm extends Component {
 
     return (
       <div>
-        Create a New Recipe
+        <h1>Create a New Recipe</h1>
       <form onSubmit={this.handleOnSubmit}>
         <div>
           <label htmlFor="name">Name:</label>

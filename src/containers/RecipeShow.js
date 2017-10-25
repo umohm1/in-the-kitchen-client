@@ -17,7 +17,8 @@ class RecipeShow extends Component {
       };
     }
 
-  componentDidMount() {
+
+  componentWillMount() {
     this.props.fetchRecipe(this.props.match.params.recipeId);
 	}
 
@@ -31,22 +32,19 @@ class RecipeShow extends Component {
     const recipe = this.props.recipe[0]
     return (
       <div>
-      {recipe.name}
-      <h1>It Works?</h1>
-
+      {recipe? recipe.name : ''}
       </div>
     )
   }
 }
 //inheriting match from this.props this is a POJO that contains the current url.
 
-const mapStateToProps = (state, ownProps) => {
-  // console.log(state, 'return state');
-return {
-  recipe: state.recipes,
-  recipeId: ownProps.match.params.recipeId
- }
+const mapStateToProps = (state) => {
+  return ({
+    recipe: state.recipes
+  })
 }
+
 // mapStateToProps() function to pulls the recipes property from our store's state and attaches it to the props of this component
 
 //incorporate recipe.js into recipeShow
