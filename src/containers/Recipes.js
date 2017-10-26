@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import './Recipes.css'
+import '../App.css'
 import RecipeCard from '../components/RecipeCard';
 import RecipeForm from './RecipeForm';
 import RecipeShow from './RecipeShow';
@@ -34,6 +34,6 @@ const mapStateToProps = (state) => {
   return ({
     recipes: state.recipes
   })
-} 
+}
 
 export default connect(mapStateToProps, {getRecipes})(Recipes);
