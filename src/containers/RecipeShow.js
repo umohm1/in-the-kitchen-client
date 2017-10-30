@@ -25,14 +25,15 @@ class RecipeShow extends Component {
   render() {
     let recipe = this.props.recipe[0];
     const {deleteRecipe, history, match} = this.props;
+
     return (
     <div className='recipeShow'>
       {recipe ? (
       <div>
         <h1>{recipe.name}</h1>
-        <h2>{recipe.ingredients}</h2>
-        <h2>{recipe.directions}</h2>
-        <h2>{recipe.cook_time}</h2>
+        <p><h3>{recipe.ingredients}</h3></p>
+        <p><h3>{recipe.directions}</h3></p>
+        <p><h3>{recipe.cook_time}</h3></p>
       </div>
     ) : (
       <p>Loading...</p>
