@@ -24,7 +24,7 @@ class Recipes extends Component {
     return (
       <div className="RecipesContainer">
       <h1>Recipes</h1>
-        {this.props.recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} /> )}
+        {this.props.recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} type='recipes' /> )}
       </div>
     );
   }

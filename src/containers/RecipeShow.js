@@ -8,32 +8,39 @@ import RecipeCard from '../components/RecipeCard';
 import Recipes from './Recipes';
 
 
+
 class RecipeShow extends Component {
-    constructor(props) {
-      super(props);
+  constructor(props) {
+    super(props);
 
-      this.state = {
-        recipe: {name: ''}
-      };
-    }
+    this.state = {
+      recipe: {name: ''}
+    };
+  }
 
-
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchRecipe(this.props.match.params.recipeId);
 	}
 
-  handleOnChange = (e) => {
-    e.preventDefault();
-    const { deleteRecipe, recipe, history } = this.props;
-    deleteRecipe(recipe);
-  }
-
   render() {
-    const recipe = this.props.recipe[0]
+    let recipe = this.props.recipe[0];
+    const {deleteRecipe, history, match} = this.props;
     return (
+    <div className='recipeShow'>
+      {recipe ? (
       <div>
-      {recipe? recipe.name : ''}
+        <h1>{recipe.name}</h1>
+        <h2>{recipe.ingredients}</h2>
+        <h2>{recipe.directions}</h2>
+        <h2>{recipe.cook_time}</h2>
       </div>
+    ) : (
+      <p>Loading...</p>
+    )}
+    <button onClick={() => deleteRecipe(recipe.id, history)}>
+      Delete
+    </button>
+    </div>
     )
   }
 }
@@ -50,4 +57,4 @@ const mapStateToProps = (state) => {
 //incorporate recipe.js into recipeShow
 // no need to fetch a recipe because I don't have it yet. Call to the API to create the recipeId
 
-export default connect(mapStateToProps, {fetchRecipe})(RecipeShow);
+export default connect(mapStateToProps, {fetchRecipe, deleteRecipe})(RecipeShow);

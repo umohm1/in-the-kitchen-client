@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import { updateRecipeFormData } from '../actions/recipeForm';
 import { createRecipe } from '../actions/recipeActions';
 
@@ -24,6 +25,7 @@ class RecipeForm extends Component {
     return (
       <div>
         <h1>Create a New Recipe</h1>
+
       <form onSubmit={this.handleOnSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
@@ -34,6 +36,7 @@ class RecipeForm extends Component {
             value={name}
           />
         </div>
+
         <div>
           <label htmlFor="ingredients">Ingredients:</label>
           <input
@@ -43,17 +46,19 @@ class RecipeForm extends Component {
             value={ingredients}
           />
         </div>
+
         <div>
           <label htmlFor="directions">Directions:</label>
           <input
-            type="textbox"
+            type="text"
             onChange={this.handleOnChange}
             name="directions"
             value={directions}
           />
         </div>
+
         <div>
-          <label htmlFor="cook_time">Cook time:</label>
+          <label htmlFor="cook_time">Cook Time:</label>
           <input
             type="text"
             onChange={this.handleOnChange}
