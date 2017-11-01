@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
 import { updateRecipeFormData } from '../actions/recipeForm';
 import { createRecipe } from '../actions/recipeActions';
+import { Button } from 'react-bootstrap';
+
 
 class RecipeForm extends Component {
 
@@ -40,7 +41,7 @@ class RecipeForm extends Component {
 
         <div>
           <label htmlFor="ingredients">Ingredients:</label>
-          <input
+          <textarea
             type="text"
             onChange={this.handleOnChange}
             name="ingredients"
@@ -50,7 +51,7 @@ class RecipeForm extends Component {
 
         <div>
           <label htmlFor="directions">Directions:</label>
-          <input
+          <textarea
             type="text"
             onChange={this.handleOnChange}
             name="directions"
@@ -64,7 +65,7 @@ class RecipeForm extends Component {
             type="text"
             onChange={this.handleOnChange}
             name="cook_time"
-            value={cook_time}
+            value={cook_time} 
           />
 
           <button type="submit">Add Recipe</button>

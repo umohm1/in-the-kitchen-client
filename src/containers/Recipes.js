@@ -14,16 +14,10 @@ class Recipes extends Component {
     this.props.getRecipes()
   }
 
-  handleOnClick = (e) => {
-    // this.setState
-    // e.target.value
-  }
-
-
   render() {
     return (
       <div className="RecipesContainer">
-      <h1>Recipes</h1>
+      <h1 id="recipeName">Recipes</h1>
         {this.props.recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} type='recipes' /> )}
       </div>
     );

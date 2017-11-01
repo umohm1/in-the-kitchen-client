@@ -6,11 +6,14 @@ import '../App.css';
 const RecipeCard = ({ recipe }) => (
 	<div key={recipe.id} className="RecipeCard">
 		<a href={`recipes/${recipe.id}`}>
-			<h3>{recipe.name}</h3>
+			<h1 className="card-title">{recipe.name}</h1>
 		</a>
-    <h3>Ingredients: {recipe.ingredients}</h3>
-    <h3>Directions: {recipe.directions}</h3>
-    <h3>Cook Time: {recipe.cook_time}</h3><br></br>
+    <br></br>
+    <p>Ingredients: <h3>{recipe.ingredients}</h3></p>
+    <br></br>
+
+    
+    <div className="card-read">Read</div>
   </div>
 )
 

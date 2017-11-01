@@ -31,9 +31,9 @@ class RecipeShow extends Component {
       {recipe ? (
       <div>
         <h1>{recipe.name}</h1>
-        <p><h3>{recipe.ingredients}</h3></p>
-        <p><h3>{recipe.directions}</h3></p>
-        <p><h3>{recipe.cook_time}</h3></p>
+        <p>Ingredients: <h3>{recipe.ingredients}</h3></p>
+        <p>Directions: <h3>{recipe.directions}</h3></p>
+        <p>Cook Time:  <h3>{recipe.cook_time}</h3></p>
       </div>
     ) : (
       <p>Loading...</p>
