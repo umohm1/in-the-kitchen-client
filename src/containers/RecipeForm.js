@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateRecipeFormData } from '../actions/recipeForm';
 import { createRecipe } from '../actions/recipeActions';
-import { Button } from 'react-bootstrap';
 
 
 class RecipeForm extends Component {
@@ -65,7 +64,7 @@ class RecipeForm extends Component {
             type="text"
             onChange={this.handleOnChange}
             name="cook_time"
-            value={cook_time} 
+            value={cook_time}
           />
 
           <button type="submit">Add Recipe</button>

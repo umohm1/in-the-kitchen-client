@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import '../App.css'
 import RecipeCard from '../components/RecipeCard';
 import RecipeForm from './RecipeForm';
@@ -10,15 +9,21 @@ import { getRecipes } from '../actions/recipeActions';
 
 class Recipes extends Component {
 
+
   componentDidMount() {
     this.props.getRecipes()
   }
 
   render() {
+    const { recipes } = this.props;
+    const sortedRecipes = recipes.sort(function(a, b) {
+            return a.name - b.name;
+          })
+
     return (
       <div className="RecipesContainer">
-      <h1 id="recipeName">Recipes</h1>
-        {this.props.recipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} type='recipes' /> )}
+      <h1 className="recipeName">Recipes</h1>
+        {sortedRecipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} /> )}
       </div>
     );
   }

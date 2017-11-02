@@ -9,10 +9,8 @@ const RecipeCard = ({ recipe }) => (
 			<h1 className="card-title">{recipe.name}</h1>
 		</a>
     <br></br>
-    <p>Ingredients: <h3>{recipe.ingredients}</h3></p>
+    <img src="http://media.dish.allrecipes.com/wp-content/uploads/2014/11/Allrecipes-Super-Easy-Stir-Fry-1-Position-2.jpg" alt="" className="media" />
     <br></br>
-
-    
     <div className="card-read">Read</div>
   </div>
 )

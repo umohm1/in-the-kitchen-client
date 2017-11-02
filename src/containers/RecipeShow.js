@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
 import { fetchRecipe } from '../actions/recipeActions';
 import { deleteRecipe } from '../actions/recipeActions';
 import RecipeForm from './RecipeForm';
@@ -24,16 +23,16 @@ class RecipeShow extends Component {
 
   render() {
     let recipe = this.props.recipe[0];
-    const {deleteRecipe, history, match} = this.props;
+    const {deleteRecipe, history} = this.props;
 
     return (
     <div className='recipeShow'>
       {recipe ? (
       <div>
         <h1>{recipe.name}</h1>
-        <p>Ingredients: <h3>{recipe.ingredients}</h3></p>
-        <p>Directions: <h3>{recipe.directions}</h3></p>
-        <p>Cook Time:  <h3>{recipe.cook_time}</h3></p>
+        <h3><p>Ingredients: {recipe.ingredients}</p></h3>
+        <h3><p>Directions: {recipe.directions}</p></h3>
+        <h3><p>Cook Time:  {recipe.cook_time}</p></h3>
       </div>
     ) : (
       <p>Loading...</p>

@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-#recipeName {
+.recipeName {
   font-family: 'Cormorant Garamond', serif;
+  font-size: 50px;
 }
 
 /** RecipeCard **/
@@ -21,10 +22,16 @@
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
+.media {
+  width: 200px;
+  height: 160px;
+  padding-top: 30px;
+}
+
 .card-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 60px;
-  font-weight: 300;
+  font-size: 30px;
+  font-weight: 200;
   line-height: 60px;
   margin: 10px 0;
 }
@@ -59,7 +66,7 @@ padding: 15px;
 border-radius:5px;
 }
 
-button[type=submit], select {
+button[type=submit] {
 margin-bottom: 20px;
 width:100%;
 padding: 15px;
