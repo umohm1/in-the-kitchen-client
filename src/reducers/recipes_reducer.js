@@ -9,6 +9,15 @@ export default (state = [], action) => {
     case 'REMOVE_RECIPE':
       return state.filter(recipe => recipe.id !== action.recipeId);
 
+    case 'LIKE_RECIPE':
+      return state.map((recipe) => {
+        if (recipe.id === action.recipeId) {
+          return action.recipe
+        } else {
+          return recipe
+        }
+      });
+
 
     default:
     return state;

@@ -87,7 +87,7 @@ export const deleteRecipe = (recipeId, routerHistory) => {
 
 export const likeRecipe = (recipe) => {
   console.log(recipe)
-  const updatedRecipe = Object.assign({}, recipe, {likes: recipe.likes + 1})
+  const updatedRecipe = Object.assign({}, recipe, { likes: recipe.likes + 1 })
   return dispatch => {
     return fetch(`${API_URL}/recipes/${recipe.id}`, {
       method: "PUT",

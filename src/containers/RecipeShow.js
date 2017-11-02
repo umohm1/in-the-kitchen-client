@@ -5,6 +5,7 @@ import { deleteRecipe } from '../actions/recipeActions';
 import RecipeForm from './RecipeForm';
 import RecipeCard from '../components/RecipeCard';
 import Recipes from './Recipes';
+import LikeButton from '../components/LikeButton';
 
 
 
@@ -41,6 +42,7 @@ class RecipeShow extends Component {
     <button onClick={() => deleteRecipe(recipe.id, history)}>
       Delete
     </button>
+    <LikeButton recipe={recipe} />
     </div>
     )
   }
