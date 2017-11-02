@@ -49,9 +49,10 @@ class RecipeShow extends Component {
 }
 //inheriting match from this.props this is a POJO that contains the current url.
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return ({
     recipe: state.recipes
+    recipe: state.recipes.find(recipe => recipe.id === ownProps.match.params.recipeId)
   })
 }
 

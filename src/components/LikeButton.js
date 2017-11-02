@@ -10,10 +10,11 @@ class LikeButton extends React.Component {
     this.props.dispatch(likeRecipe(currentRecipe))
   }
 
+
   render() {
     return (
       <div>
-        <button onClick={this.handleOnClick} classname="likeB">Like {this.props.recipe.likes}</button>
+        <button onClick={this.handleOnClick} classname="likeB">Like </button>
       </div>
     )
   }
