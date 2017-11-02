@@ -29,7 +29,7 @@ class RecipeShow extends Component {
     <div className='recipeShow'>
       {recipe ? (
       <div>
-        <h1>{recipe.name}</h1>
+        <h1 className="recipeName">{recipe.name}</h1>
         <h3><p>Ingredients: {recipe.ingredients}</p></h3>
         <h3><p>Directions: {recipe.directions}</p></h3>
         <h3><p>Cook Time:  {recipe.cook_time}</p></h3>
@@ -37,6 +37,7 @@ class RecipeShow extends Component {
     ) : (
       <p>Loading...</p>
     )}
+    <br></br>
     <button onClick={() => deleteRecipe(recipe.id, history)}>
       Delete
     </button>

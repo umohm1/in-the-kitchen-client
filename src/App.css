@@ -3,9 +3,11 @@
 }
 
 .recipeName {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: fantasy;
   font-size: 50px;
+  font-weight: 500;
 }
+
 
 /** RecipeCard **/
 
@@ -64,25 +66,32 @@ margin-top: 10px;
 width:100%;
 padding: 15px;
 border-radius:5px;
+border:1px solid #A9A9A9;
 }
 
 button[type=submit] {
-margin-bottom: 20px;
-width:100%;
-padding: 15px;
-border-radius:5px;
-font-size:15px;
-cursor:pointer;
-}
+  margin-bottom: 20px;
+  width:100%;
+  padding: 15px;
+  border-radius:5px;
+  border:1px solid #A9A9A9;
+  background-color: #007acc;
+  color: #F0F8FF;
+  opacity: 0.5;
+  font-size:15px;
+  cursor:pointer;
+  }
+
 
 textarea {
-width:100%;
-padding: 15px;
-margin-top: 10px;
-border-radius:5px;
-margin-bottom: 20px;
-resize:none;
+  width:100%;
+  padding: 15px;
+  margin-top: 10px;
+  border:1px solid #A9A9A9;
+  border-radius:5px;
+  margin-bottom: 20px;
+  resize:none;
 }
 input[type=text]:focus,textarea:focus {
-border-color: #4697e4;
+ border-color: #4697e4;
 }

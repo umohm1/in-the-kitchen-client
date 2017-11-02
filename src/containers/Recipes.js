@@ -17,7 +17,7 @@ class Recipes extends Component {
   render() {
     const { recipes } = this.props;
     const sortedRecipes = recipes.sort(function(a, b) {
-            return a.name - b.name;
+            return a - b;
           })
 
     return (

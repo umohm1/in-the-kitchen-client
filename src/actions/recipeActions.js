@@ -24,6 +24,14 @@ export const removeRecipe = recipe => {
   }
 }
 
+export const addLikes = recipe => {
+  return {
+    type: 'LIKE_RECIPE',
+    recipe
+  }
+}
+
+
 // Async actions
 export const getRecipes= () => {
   return dispatch => {
@@ -73,6 +81,25 @@ export const deleteRecipe = (recipeId, routerHistory) => {
       dispatch(removeRecipe(recipeId));
       routerHistory.replace('/recipes');
     })
+    .catch(error => console.log(error))
+  }
+}
+
+export const likeRecipe = (recipe) => {
+  console.log(recipe)
+  const updatedRecipe = Object.assign({}, recipe, {likes: recipe.likes + 1})
+  return dispatch => {
+    return fetch(`${API_URL}/recipes/${recipe.id}`, {
+      method: "PUT",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({recipe: updatedRecipe})
+      })
+      .then(response => response.json())
+      .then(recipe => {
+        dispatch(addLikes(recipe));
+      })
     .catch(error => console.log(error))
   }
 }

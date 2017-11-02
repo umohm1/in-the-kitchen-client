@@ -25,7 +25,7 @@ class RecipeForm extends Component {
 
     return (
       <div>
-        <h1>Create a New Recipe</h1>
+        <h1 className="recipeName">Create a New Recipe</h1>
 
       <form onSubmit={this.handleOnSubmit}>
         <div>
