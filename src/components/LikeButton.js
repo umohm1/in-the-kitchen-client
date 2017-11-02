@@ -14,15 +14,15 @@ class LikeButton extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleOnClick} classname="likeB">Like </button>
+        <button onClick={this.handleOnClick} classname="likeB">Like {this.props.recipe.likes}</button>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    recipe: state.recipe
+    recipe: state.recipes.find(recipe => recipe.id === ownProps.match.params.recipeId)
   }
 }
 

@@ -5,6 +5,8 @@ import RecipeCard from '../components/RecipeCard';
 import RecipeForm from './RecipeForm';
 import RecipeShow from './RecipeShow';
 import { getRecipes } from '../actions/recipeActions';
+import { Switch, Route } from 'react-router-dom';
+
 
 
 class Recipes extends Component {
@@ -15,17 +17,30 @@ class Recipes extends Component {
   }
 
   render() {
-    const { recipes } = this.props;
+    const { recipes, match } = this.props;
     const sortedRecipes = recipes.sort(function(a, b) {
-            return a - b;
+            return a.name - b.name;
           })
 
     return (
+      <div>
+      <Switch>
+      <Route exact path={match.url}
+       render={() =>
       <div className="RecipesContainer">
       <h1 className="recipeName">Recipes</h1>
         {sortedRecipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} /> )}
       </div>
-    );
+    }
+    />
+    <Route exact path="/recipes/new" component={RecipeForm}/>
+         <Route
+           path="/recipes/:recipeId"
+           component={RecipeShow}
+         />
+       </Switch>
+     </div>
+    )
   }
 }
 
