@@ -20,9 +20,9 @@ class LikeButton extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
-    recipe: state.recipes.find(recipe => recipe.id === ownProps.match.params.recipeId)
+    recipeId: state.recipeId
   }
 }
 

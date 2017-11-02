@@ -64,11 +64,18 @@ export const createRecipe = (recipe, routerHistory) => {
     })
     .then(response => response.json())
     .then(recipe => {
+      // to check if recipe is actually the message
+      // if it is the message, dispatch to another action that handles errors
+      // redirect to new page with errors in store
+      // else
       dispatch(addRecipe(recipe))
       dispatch(resetRecipeForm())
       routerHistory.replace(`/recipes/${recipe.id}`)
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+      routerHistory.replace(`/recipes/new`)
+     })
   }
 }
 
@@ -86,6 +93,7 @@ export const deleteRecipe = (recipeId, routerHistory) => {
 }
 
 export const likeRecipe = (recipe) => {
+  console.log(recipe, 'return recipe');
   const updatedRecipe = Object.assign({}, recipe, { likes: recipe.likes + 1 })
   return dispatch => {
     return fetch(`${API_URL}/recipes/${recipe.id}`, {

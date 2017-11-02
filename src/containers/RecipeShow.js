@@ -42,7 +42,7 @@ class RecipeShow extends Component {
     <button onClick={() => deleteRecipe(recipe.id, history)}>
       Delete
     </button>
-    <LikeButton recipe={recipe} />
+    {recipe ? <LikeButton recipe={recipe} /> : 'some error happened'}
     </div>
     )
   }
