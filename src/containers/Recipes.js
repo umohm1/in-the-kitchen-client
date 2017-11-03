@@ -19,7 +19,8 @@ class Recipes extends Component {
   render() {
     const { recipes, match } = this.props;
     const sortedRecipes = recipes.sort(function(a, b) {
-            return a.name - b.name;
+            return a.likes - b.likes;
+            debugger
           })
 
     return (

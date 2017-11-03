@@ -6,16 +6,15 @@ import RecipeForm from './RecipeForm';
 import RecipeCard from '../components/RecipeCard';
 import Recipes from './Recipes';
 import LikeButton from '../components/LikeButton';
+import { likeRecipe } from '../actions/recipeActions';
 
 
 
 class RecipeShow extends Component {
-  constructor(props) {
-    super(props);
+  
 
-    this.state = {
-      recipe: {name: ''}
-    };
+  handleOnClick = () => {
+    this.props.likeRecipe(this.props.recipe[0])
   }
 
   componentDidMount() {
@@ -42,11 +41,12 @@ class RecipeShow extends Component {
     <button onClick={() => deleteRecipe(recipe.id, history)}>
       Delete
     </button>
-    {recipe ? <LikeButton recipe={recipe} /> : 'some error happened'}
+    {recipe ? <LikeButton recipe={recipe} likeRecipe={this.handleOnClick}/> : 'some error happened'}
     </div>
     )
   }
 }
+
 //inheriting match from this.props this is a POJO that contains the current url.
 
 const mapStateToProps = (state) => {
@@ -60,4 +60,4 @@ const mapStateToProps = (state) => {
 //incorporate recipe.js into recipeShow
 // no need to fetch a recipe because I don't have it yet. Call to the API to create the recipeId
 
-export default connect(mapStateToProps, {fetchRecipe, deleteRecipe})(RecipeShow);
+export default connect(mapStateToProps, {fetchRecipe, deleteRecipe, likeRecipe})(RecipeShow);

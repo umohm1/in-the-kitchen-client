@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateRecipeFormData } from '../actions/recipeForm';
 import { createRecipe } from '../actions/recipeActions';
-
+import FormError from '../components/FormError';
 
 class RecipeForm extends Component {
 
@@ -21,11 +21,12 @@ class RecipeForm extends Component {
   }
 
   render() {
-    const { name, ingredients, directions, cook_time} = this.props.recipeFormData;
+    const { name, ingredients, directions, cook_time, likes} = this.props.recipeFormData;
 
     return (
       <div>
         <h1 className="recipeName">Create a New Recipe</h1>
+        {this.props.errors === true ? <FormError/> : null}
 
       <form onSubmit={this.handleOnSubmit}>
         <div>
@@ -77,7 +78,8 @@ class RecipeForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    recipeFormData: state.recipeFormData
+    recipeFormData: state.recipeFormData,
+    errors: state.errors
   }
 }
 

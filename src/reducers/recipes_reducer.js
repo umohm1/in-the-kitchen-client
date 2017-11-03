@@ -11,7 +11,7 @@ export default (state = [], action) => {
 
     case 'LIKE_RECIPE':
       return state.map((recipe) => {
-        if (recipe.id === action.recipeId) {
+        if (recipe.id === action.recipe.id) {
           return action.recipe
         } else {
           return recipe

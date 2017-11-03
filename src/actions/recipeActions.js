@@ -62,18 +62,15 @@ export const createRecipe = (recipe, routerHistory) => {
       },
       body: JSON.stringify({recipe: recipe})
     })
+    .then(handleErrors)
     .then(response => response.json())
     .then(recipe => {
-      // to check if recipe is actually the message
-      // if it is the message, dispatch to another action that handles errors
-      // redirect to new page with errors in store
-      // else
       dispatch(addRecipe(recipe))
       dispatch(resetRecipeForm())
       routerHistory.replace(`/recipes/${recipe.id}`)
     })
     .catch(error => {
-      console.log(error)
+      dispatch({type: 'error'}) //console.log(error)
       routerHistory.replace(`/recipes/new`)
      })
   }
@@ -104,9 +101,17 @@ export const likeRecipe = (recipe) => {
         body: JSON.stringify({recipe: updatedRecipe})
       })
       .then(response => response.json())
+      // .then(res => {debugger})
       .then(recipe => {
         dispatch(addLikes(recipe));
       })
     .catch(error => console.log(error))
   }
+}
+
+function handleErrors(response){
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
 }

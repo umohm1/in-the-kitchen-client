@@ -6,11 +6,13 @@ import {
 import thunk from 'redux-thunk';
 import recipes from './reducers/recipes_reducer';
 import recipeFormData from './reducers/recipeFormData';
+import errors from './reducers/errors_reducer';
 
 
 const reducers = combineReducers({
   recipes,
-  recipeFormData
+  recipeFormData,
+  errors
 });
 
 const middleware = [thunk];
