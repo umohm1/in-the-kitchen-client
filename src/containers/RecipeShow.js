@@ -11,7 +11,7 @@ import { likeRecipe } from '../actions/recipeActions';
 
 
 class RecipeShow extends Component {
-  
+
 
   handleOnClick = () => {
     this.props.likeRecipe(this.props.recipe[0])
@@ -30,8 +30,8 @@ class RecipeShow extends Component {
       {recipe ? (
       <div>
         <h1 className="recipeName">{recipe.name}</h1>
-        <h3><p>Ingredients: {recipe.ingredients}</p></h3>
-        <h3><p>Directions: {recipe.directions}</p></h3>
+        <h3><p>Ingredients: <br></br>{recipe.ingredients}</p></h3>
+        <h3><p>Directions: <br></br>{recipe.directions}</p></h3>
         <h3><p>Cook Time:  {recipe.cook_time}</p></h3>
       </div>
     ) : (

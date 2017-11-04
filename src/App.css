@@ -9,6 +9,14 @@
 }
 
 
+/** NavLinks **/
+
+.home img {
+  height: 515px;
+  width: 500px;
+}
+
+
 /** RecipeCard **/
 
 .RecipeCard {
@@ -94,4 +102,10 @@ textarea {
 }
 input[type=text]:focus,textarea:focus {
  border-color: #4697e4;
+}
+
+/** RecipeShow **/
+
+.recipeShow {
+
 }
