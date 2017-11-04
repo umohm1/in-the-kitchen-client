@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu, Icon } from 'semantic-ui-react';
-import { Navlink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {

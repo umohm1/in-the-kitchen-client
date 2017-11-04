@@ -21,7 +21,7 @@ class RecipeForm extends Component {
   }
 
   render() {
-    const { name, ingredients, directions, cook_time, likes} = this.props.recipeFormData;
+    const { name, ingredients, directions, cook_time, likes } = this.props.recipeFormData;
 
     return (
       <div>

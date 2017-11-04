@@ -6,6 +6,7 @@ import RecipeForm from './RecipeForm';
 import RecipeShow from './RecipeShow';
 import { getRecipes } from '../actions/recipeActions';
 import { Switch, Route } from 'react-router-dom';
+import { likeRecipe } from '../actions/recipeActions';
 
 
 
@@ -19,8 +20,7 @@ class Recipes extends Component {
   render() {
     const { recipes, match } = this.props;
     const sortedRecipes = recipes.sort(function(a, b) {
-            return a.likes - b.likes;
-            debugger
+            return b.likes - a.likes;
           })
 
     return (
@@ -51,4 +51,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, {getRecipes})(Recipes);
+export default connect(mapStateToProps, {getRecipes, likeRecipe})(Recipes);
