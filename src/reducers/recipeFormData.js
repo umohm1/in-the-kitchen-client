@@ -3,7 +3,6 @@ const initialState = {
   ingredients: '',
   directions: '',
   cook_time: 0,
-  like: 0
 }
 
 export default (state = initialState, action) => {

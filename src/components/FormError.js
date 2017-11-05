@@ -1,8 +1,9 @@
 import React from 'react';
 
 const FormError = () => {
+  const style = { color: 'red' }
   return (
-    <p>Error: Please fill out all inputs</p>
+    <p style={style}>Error: Please fill out all inputs</p>
   )
 }
 
