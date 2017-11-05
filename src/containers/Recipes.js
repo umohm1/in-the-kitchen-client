@@ -9,9 +9,7 @@ import { Switch, Route } from 'react-router-dom';
 import { likeRecipe } from '../actions/recipeActions';
 
 
-
 class Recipes extends Component {
-
 
   componentDidMount() {
     this.props.getRecipes()
