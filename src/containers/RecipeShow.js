@@ -47,17 +47,11 @@ class RecipeShow extends Component {
   }
 }
 
-//inheriting match from this.props this is a POJO that contains the current url.
 
 const mapStateToProps = (state) => {
   return ({
     recipe: state.recipes
   })
 }
-
-// mapStateToProps() function to pulls the recipes property from our store's state and attaches it to the props of this component
-
-//incorporate recipe.js into recipeShow
-// no need to fetch a recipe because I don't have it yet. Call to the API to create the recipeId
 
 export default connect(mapStateToProps, {fetchRecipe, deleteRecipe, likeRecipe})(RecipeShow);

@@ -70,7 +70,7 @@ export const createRecipe = (recipe, routerHistory) => {
       routerHistory.replace(`/recipes/${recipe.id}`)
     })
     .catch(error => {
-      dispatch({type: 'error'}) //console.log(error)
+      dispatch({type: 'error'}) 
       routerHistory.replace(`/recipes/new`)
      })
   }
