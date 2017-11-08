@@ -37,7 +37,9 @@ export const getRecipes= () => {
   return dispatch => {
     return fetch(`${API_URL}/recipes`)
     .then(res => res.json())
-    .then(recipes => dispatch(setRecipes(recipes)))
+    .then(recipes => {
+      dispatch(setRecipes(recipes))
+    })
     .catch(error => console.log(error));
   }
 }
@@ -70,7 +72,7 @@ export const createRecipe = (recipe, routerHistory) => {
       routerHistory.replace(`/recipes/${recipe.id}`)
     })
     .catch(error => {
-      dispatch({type: 'error'}) 
+      dispatch({type: 'error'})
       routerHistory.replace(`/recipes/new`)
      })
   }
@@ -89,7 +91,7 @@ export const deleteRecipe = (recipeId, routerHistory) => {
   }
 }
 
-export const likeRecipe = (recipe) => {
+export const likeRecipe = (recipe, recipes) => {
   const updatedRecipe = Object.assign(...recipe, { likes: recipe.likes + 1 })
   return dispatch => {
     return fetch(`${API_URL}/recipes/${recipe.id}`, {
@@ -101,7 +103,8 @@ export const likeRecipe = (recipe) => {
       })
       .then(response => response.json())
       .then(recipe => {
-        dispatch(addLikes(recipe));
+        dispatch(addLikes(recipe))
+        dispatch(addLikes(recipes))
       })
     .catch(error => console.log(error))
   }
