@@ -13,8 +13,8 @@
 /** NavLinks **/
 
 .home img {
-  height: 515px;
-  width: 500px;
+  height: 643px;
+  width: 585px;
 }
 
 
@@ -103,10 +103,4 @@ textarea {
 }
 input[type=text]:focus,textarea:focus {
  border-color: #4697e4;
-}
-
-/** RecipeShow **/
-
-.recipeShow {
-
 }

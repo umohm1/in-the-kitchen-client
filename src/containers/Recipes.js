@@ -17,28 +17,28 @@ class Recipes extends Component {
 
   render() {
     const { recipes, match } = this.props;
-    const sortedRecipes = recipes.sort(function(a, b) {
-            return b.likes - a.likes;
-          })
+    const sortedRecipes = recipes.sort(function (a, b) {
+      return b.likes - a.likes;
+    })
 
     return (
       <div>
-      <Switch>
-      <Route exact path={match.url}
-       render={() =>
-      <div className="RecipesContainer">
-      <h1 className="recipeName">Recipes</h1>
-        {sortedRecipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} /> )}
+        <Switch>
+          <Route exact path={match.url}
+            render={() =>
+              <div className="RecipesContainer">
+                <h1 className="recipeName">Recipes</h1>
+                {sortedRecipes.map(recipe => <RecipeCard key={recipe.id} recipe={recipe} />)}
+              </div>
+            }
+          />
+          <Route exact path="/recipes/new" component={RecipeForm} />
+          <Route
+            path="/recipes/:recipeId"
+            component={RecipeShow}
+          />
+        </Switch>
       </div>
-    }
-    />
-    <Route exact path="/recipes/new" component={RecipeForm}/>
-         <Route
-           path="/recipes/:recipeId"
-           component={RecipeShow}
-         />
-       </Switch>
-     </div>
     )
   }
 }
@@ -49,4 +49,4 @@ const mapStateToProps = (state) => {
   })
 }
 
-export default connect(mapStateToProps, {getRecipes, likeRecipe})(Recipes);
+export default connect(mapStateToProps, { getRecipes, likeRecipe })(Recipes);

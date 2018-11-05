@@ -15,7 +15,7 @@ class RecipeCard extends Component {
 					<h1 className="card-title">{recipe.name}</h1>
 				</a>
 		    <br></br>
-		    <img src="http://media.dish.allrecipes.com/wp-content/uploads/2014/11/Allrecipes-Super-Easy-Stir-Fry-1-Position-2.jpg" alt="" className="media" />
+				<img src="https://images.unsplash.com/photo-1495461199391-8c39ab674295?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7baeff72dbf865f4ca4267cbe433b4cb&auto=format&fit=crop&w=1650&q=80" alt="" className="media" />
 		    <br></br>
 		    <div className="card-read">Read</div>
 				<button onClick={() => {this.props.likeRecipe(recipe, recipes)}}>Like</button> {this.props.recipe.likes}
